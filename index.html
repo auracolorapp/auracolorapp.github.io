@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA - Kişisel Renk Analizi ve Stil Rehberiniz</title>
+    <title>AURA — AI-Powered Personal Color Analysis & Style Passport</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -14,34 +14,40 @@
             --rose-gold: #C48A7A;
             --bronze: #9E5D4B;
             --cta-black: #2A2A28;
-            --glass-white: rgba(255, 255, 255, 0.45);
+            --glass-white: rgba(255, 255, 255, 0.65);
+            --gold-accent: #D4AF37;
         }
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             background-color: var(--cream-bg);
             color: var(--ink-deep);
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            line-height: 1.7;
         }
+        
+        /* Navigation */
         header {
             max-width: 1200px;
             width: 100%;
             margin: 0 auto;
-            padding: 30px 24px;
+            padding: 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+            z-index: 10;
         }
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             letter-spacing: 4px;
             color: var(--bronze);
             text-decoration: none;
@@ -51,30 +57,31 @@
             color: var(--ink-mid);
             text-decoration: none;
             font-size: 0.95rem;
-            font-weight: 500;
-            margin-left: 24px;
+            font-weight: 600;
+            margin-left: 28px;
             transition: color 0.3s ease;
         }
         nav a:hover {
             color: var(--rose-gold);
         }
+
+        /* Hero Section */
         .hero {
             max-width: 1200px;
             width: 100%;
-            margin: 60px auto flex-grow;
+            margin: 40px auto 100px;
             padding: 0 24px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
             align-items: center;
-            flex-grow: 1;
         }
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 40px;
-                margin: 20px auto;
+                gap: 50px;
+                margin-bottom: 60px;
             }
             .hero-image-container {
                 order: 2;
@@ -82,26 +89,29 @@
         }
         .hero-text h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
             line-height: 1.15;
             color: var(--ink-deep);
             margin-bottom: 24px;
             font-weight: 300;
+            letter-spacing: -1px;
         }
         .hero-text h1 span {
             font-family: 'Playfair Display', serif;
             font-style: italic;
             color: var(--rose-gold);
+            font-weight: 400;
         }
         .hero-text p {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             color: var(--ink-mid);
             line-height: 1.8;
-            margin-bottom: 36px;
+            margin-bottom: 40px;
             font-weight: 300;
         }
         .cta-buttons {
             display: flex;
+            flex-wrap: wrap;
             gap: 16px;
         }
         @media (max-width: 900px) {
@@ -110,31 +120,39 @@
             }
         }
         .btn {
-            padding: 16px 32px;
-            border-radius: 30px;
+            padding: 18px 36px;
+            border-radius: 35px;
             font-weight: 600;
             text-decoration: none;
-            display: inline-block;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
         }
         .btn-primary {
             background-color: var(--cta-black);
             color: #FFFFFF;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.22);
+            background-color: #000000;
         }
         .btn-secondary {
             background-color: var(--glass-white);
             color: var(--ink-deep);
-            border: 1px solid rgba(28, 28, 26, 0.15);
+            border: 1px solid rgba(28, 28, 26, 0.12);
         }
         .btn-secondary:hover {
-            transform: translateY(-2px);
-            background-color: rgba(255, 255, 255, 0.65);
+            transform: translateY(-3px);
+            background-color: #FFFFFF;
+            border-color: rgba(28, 28, 26, 0.25);
         }
+
+        /* Hero Image - App Card Mockup */
         .hero-image-container {
             display: flex;
             justify-content: center;
@@ -143,136 +161,363 @@
         }
         .aura-orb-bg {
             position: absolute;
-            width: 380px;
-            height: 380px;
+            width: 450px;
+            height: 450px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(196, 138, 122, 0.15) 0%, rgba(139, 126, 184, 0.08) 40%, transparent 70%);
-            filter: blur(20px);
+            background: radial-gradient(circle, rgba(196, 138, 122, 0.22) 0%, rgba(139, 126, 184, 0.12) 40%, transparent 70%);
+            filter: blur(25px);
             z-index: 1;
-            animation: pulse-aura 10s infinite alternate;
+            animation: pulse-aura 12s infinite alternate;
         }
         @keyframes pulse-aura {
-            0% { transform: scale(0.9) translate(0, 0); }
-            100% { transform: scale(1.1) translate(10px, 10px); }
+            0% { transform: scale(0.85) translate(0, 0); }
+            100% { transform: scale(1.1) translate(15px, 15px); }
         }
         .app-preview-card {
             background-color: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 40px;
-            width: 300px;
-            height: 520px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 44px;
+            width: 320px;
+            height: 540px;
+            box-shadow: 0 25px 50px rgba(28, 28, 26, 0.08);
             z-index: 2;
-            padding: 30px;
+            padding: 35px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            position: relative;
+            border-top-width: 2px;
         }
         .app-icon {
-            width: 76px;
-            height: 76px;
-            border-radius: 20px;
+            width: 84px;
+            height: 84px;
+            border-radius: 22px;
             background: linear-gradient(135deg, #FAF6F0, #F5EDE2, #EDE4D5);
-            border: 1px solid rgba(196, 138, 122, 0.3);
+            border: 1px solid rgba(196, 138, 122, 0.35);
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 20px;
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--bronze);
             letter-spacing: 2px;
             font-weight: 600;
-            box-shadow: 0 10px 20px rgba(158, 93, 75, 0.1);
+            box-shadow: 0 12px 24px rgba(158, 93, 75, 0.12);
         }
         .app-title-preview {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 2rem;
             text-align: center;
             margin-top: 20px;
             font-weight: 300;
+            letter-spacing: 1px;
         }
         .app-title-preview span {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--rose-gold);
             display: block;
-            margin-top: 8px;
+            margin-top: 10px;
+            font-weight: 600;
         }
         .palette-preview {
             display: flex;
             gap: 12px;
-            margin: 40px 0;
+            margin: 30px 0;
+            background: rgba(28, 28, 26, 0.03);
+            padding: 10px 16px;
+            border-radius: 20px;
+            border: 0.5px solid rgba(28, 28, 26, 0.05);
         }
         .palette-color {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
-            border: 1px solid rgba(28, 28, 26, 0.1);
+            border: 1px solid rgba(28, 28, 26, 0.08);
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2);
         }
         .app-mock-footer {
             font-size: 0.8rem;
             color: var(--ink-mid);
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            opacity: 0.7;
         }
-        footer {
+
+        /* Pain points / FOMO Section */
+        .fomo-section {
             background-color: var(--cream-card);
-            padding: 40px 24px;
+            padding: 100px 24px;
             text-align: center;
+            border-y: 1px solid rgba(196, 138, 122, 0.15);
+        }
+        .fomo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .section-tag {
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            color: var(--rose-gold);
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .fomo-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--ink-deep);
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.25;
+        }
+        .fomo-section .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--ink-mid);
+            max-width: 600px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+        }
+        .fomo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            text-align: left;
+        }
+        @media (max-width: 768px) {
+            .fomo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .fomo-card {
+            background: #FAF6F0;
+            border-radius: 28px;
+            padding: 40px;
+            border: 1px solid rgba(196, 138, 122, 0.15);
+            transition: transform 0.3s ease;
+        }
+        .fomo-card:hover {
+            transform: translateY(-5px);
+        }
+        .fomo-card.negative {
+            border-left: 6px solid #C47A7A;
+        }
+        .fomo-card.positive {
+            border-left: 6px solid #8BAF8B;
+        }
+        .fomo-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .fomo-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .fomo-card li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 28px;
+            font-size: 1.05rem;
+            color: var(--ink-mid);
+            font-weight: 300;
+        }
+        .fomo-card.negative li::before {
+            content: "✕";
+            position: absolute;
+            left: 0;
+            color: #C47A7A;
+            font-weight: 700;
+        }
+        .fomo-card.positive li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #8BAF8B;
+            font-weight: 700;
+        }
+
+        /* Core Features Showcase */
+        .features-section {
+            padding: 120px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .features-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            color: var(--ink-deep);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+        .features-section .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--ink-mid);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+            font-weight: 300;
+        }
+        .feature-showcase-row {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+        .feature-showcase-row:nth-child(even) {
+            grid-template-columns: 1.1fr 1fr;
+        }
+        @media (max-width: 900px) {
+            .feature-showcase-row, .feature-showcase-row:nth-child(even) {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+        }
+        .feature-illustration {
+            background-color: var(--cream-card);
+            border-radius: 40px;
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(196, 138, 122, 0.1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(28, 28, 26, 0.03);
+        }
+        .feature-illustration-gradient {
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: linear-gradient(135deg, rgba(196, 138, 122, 0.15) 0%, rgba(139, 126, 184, 0.15) 50%, rgba(255, 255, 255, 0) 100%);
+        }
+        .feature-icon-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            box-shadow: 0 15px 30px rgba(28, 28, 26, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+        }
+        .feature-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--ink-deep);
+            font-weight: 400;
+        }
+        .feature-content p {
+            font-size: 1.15rem;
+            color: var(--ink-mid);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: linear-gradient(185deg, var(--cream-card) 0%, #FAF6F0 100%);
+            padding: 120px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
             border-top: 1px solid rgba(196, 138, 122, 0.15);
-            margin-top: auto;
+        }
+        .final-cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--ink-deep);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+        .final-cta p {
+            font-size: 1.3rem;
+            color: var(--ink-mid);
+            margin-bottom: 44px;
+            font-weight: 300;
+        }
+        .final-cta .cta-buttons {
+            justify-content: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--cta-black);
+            padding: 60px 24px;
+            text-align: center;
+            color: #FFFFFF;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
         .footer-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.6rem;
-            letter-spacing: 4px;
-            color: var(--bronze);
-            margin-bottom: 20px;
+            font-size: 2rem;
+            letter-spacing: 5px;
+            color: var(--cream-bg);
+            margin-bottom: 24px;
         }
         .footer-links {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
         .footer-links a {
-            color: var(--ink-mid);
+            color: rgba(250, 246, 240, 0.75);
             text-decoration: none;
-            margin: 0 12px;
-            font-size: 0.9rem;
+            margin: 0 16px;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
         .footer-links a:hover {
             color: var(--rose-gold);
         }
         .copyright {
-            font-size: 0.8rem;
-            color: var(--ink-mid);
-            opacity: 0.7;
+            font-size: 0.85rem;
+            color: rgba(250, 246, 240, 0.45);
+            letter-spacing: 0.5px;
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <header>
         <a href="index.html" class="logo">AURA</a>
         <nav>
-            <a href="terms.html">Kullanım Koşulları</a>
-            <a href="privacy.html">Gizlilik Politikası</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">EULA</a>
+            <a href="privacy.html">Privacy Policy</a>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <div class="hero">
         <div class="hero-text">
-            <h1>Kendi Doğal <span>Işıltınızı</span> Keşfedin.</h1>
-            <p>Munsell Renk Teorisi ve yapay zeka ile güçlendirilmiş AURA, cilt alt tonunuzu analiz ederek gardırobunuza ve makyajınıza en çok yakışan kişisel mevsimsel renk paletinizi belirler.</p>
+            <h1>Discover Your <span>True Colors</span>.</h1>
+            <p>Unlock the science of personal color analysis. AURA uses Munsell color theory and advanced AI to map your skin undertones, revealing the exact seasonal palette that makes you look instantly radiant, rested, and confident.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">App Store'dan İndir</a>
-                <a href="#" class="btn btn-secondary">Google Play'den Al</a>
+                <a href="#" class="btn btn-primary">Download on App Store</a>
+                <a href="#" class="btn btn-secondary">Get it on Google Play</a>
             </div>
         </div>
         <div class="hero-image-container">
@@ -281,28 +526,114 @@
                 <div class="app-icon">A</div>
                 <div class="app-title-preview">
                     AURA
-                    <span>Renk Pasaportu</span>
+                    <span>Style Passport</span>
                 </div>
                 <div class="palette-preview">
-                    <div class="palette-color" style="background-color: #0F172A;"></div>
-                    <div class="palette-color" style="background-color: #370617;"></div>
-                    <div class="palette-color" style="background-color: #8BAF8B;"></div>
-                    <div class="palette-color" style="background-color: #7209B7;"></div>
-                    <div class="palette-color" style="background-color: #BC6C25;"></div>
+                    <div class="palette-color" style="background-color: #C3B1E1;"></div>
+                    <div class="palette-color" style="background-color: #C48A7A;"></div>
+                    <div class="palette-color" style="background-color: #1A2238;"></div>
+                    <div class="palette-color" style="background-color: #FAF6F0;"></div>
+                    <div class="palette-color" style="background-color: #9E5D4B;"></div>
                 </div>
                 <div class="app-mock-footer">Aura Color Analysis AI</div>
             </div>
         </div>
     </div>
 
+    <!-- Pain vs Gain (FOMO) Section -->
+    <section class="fomo-section">
+        <div class="fomo-container">
+            <span class="section-tag">The Wardrobe Revolution</span>
+            <h2>Why Personal Color Matters</h2>
+            <p class="section-subtitle">Wearing the wrong colors drains your natural glow and makes you look tired. Wearing your true colors does the exact opposite.</p>
+            
+            <div class="fomo-grid">
+                <div class="fomo-card negative">
+                    <h3>Without AURA</h3>
+                    <ul>
+                        <li>Spending money on clothes that sit in your closet unworn</li>
+                        <li>Looking tired or pale, even after 8 hours of sleep</li>
+                        <li>Feeling overwhelmed by retail racks and cosmetic options</li>
+                        <li>Regretting expensive impulse shopping mistakes</li>
+                    </ul>
+                </div>
+                <div class="fomo-card positive">
+                    <h3>With AURA</h3>
+                    <ul>
+                        <li>Buy only what loves you back and build a smart capsule wardrobe</li>
+                        <li>Instantly look radiant, healthy, and naturally vibrant</li>
+                        <li>Walk into any store knowing exactly which racks to browse</li>
+                        <li>Save thousands of dollars by eliminating wardrobe mistakes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Features Showcase -->
+    <section class="features-section">
+        <span class="section-tag" style="text-align: center;">Inside The App</span>
+        <h2>Designed to Perfect Your Style</h2>
+        <p class="section-subtitle">A professional, real-world color analysis consultation costs upwards of $300. AURA puts that expert precision right in your pocket.</p>
+
+        <!-- Feature 1 -->
+        <div class="feature-showcase-row">
+            <div class="feature-illustration">
+                <div class="feature-illustration-gradient"></div>
+                <div class="feature-icon-wrapper">✨</div>
+            </div>
+            <div class="feature-content">
+                <h3>AI-Powered 12-Season Analysis</h3>
+                <p>Upload a selfie under natural light. Our advanced skin-tone neural networks analyze your skin, hair, and eye contrast against Munsell color scales to identify your exact sub-season—whether you are a Soft Autumn, Bright Spring, or Muted Summer.</p>
+            </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-showcase-row">
+            <div class="feature-content">
+                <h3>Your 60+ Color Style Passport</h3>
+                <p>No more guessing. Unlock a curated library of over 60 shades tailored specifically to your undertones. Filter colors by clothing base, statement pieces, hair colors, makeup, jewelry metals, and nail polish.</p>
+            </div>
+            <div class="feature-illustration">
+                <div class="feature-illustration-gradient"></div>
+                <div class="feature-icon-wrapper">🎨</div>
+            </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-showcase-row">
+            <div class="feature-illustration">
+                <div class="feature-illustration-gradient"></div>
+                <div class="feature-icon-wrapper">🔍</div>
+            </div>
+            <div class="feature-content">
+                <h3>Real-Time Camera Scanner</h3>
+                <p>Out shopping? Point your camera at any fabric or cosmetic item in a store. AURA's scanner extracts the color values instantly and tells you if the shade belongs in your seasonal palette or if you should leave it on the rack.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="final-cta">
+        <div class="final-cta-container">
+            <h2>Stop Guessing. Start Glowing.</h2>
+            <p>Join thousands of individuals who have unlocked their season and changed the way they shop forever.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Download on App Store</a>
+                <a href="#" class="btn btn-secondary">Get it on Google Play</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-logo">AURA</div>
         <div class="footer-links">
-            <a href="terms.html">Kullanım Koşulları</a>
-            <a href="privacy.html">Gizlilik Politikası</a>
-            <a href="mailto:support@auracolorapp.com">Destek & İletişim</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Service (EULA)</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="mailto:support@auracolorapp.com">Support & Contact</a>
         </div>
-        <p class="copyright">&copy; 2026 AURA. Tüm hakları saklıdır.</p>
+        <p class="copyright">&copy; 2026 AURA. All rights reserved.</p>
     </footer>
 </body>
 </html>
