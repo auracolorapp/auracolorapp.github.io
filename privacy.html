@@ -50,11 +50,11 @@
         }
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--ink-deep);
             margin-top: 36px;
             margin-bottom: 16px;
-            border-bottom: 1px solid rgba(196, 138, 122, 0.1);
+            border-bottom: 1px solid rgba(196, 138, 122, 0.15);
             padding-bottom: 8px;
         }
         p {
@@ -63,10 +63,10 @@
             margin-bottom: 20px;
             font-weight: 300;
         }
-        ul {
+        ul, ol {
             color: var(--ink-mid);
             font-weight: 300;
-            padding-left: 20px;
+            padding-left: 24px;
             margin-bottom: 20px;
         }
         li {
@@ -74,7 +74,7 @@
         }
         .highlight-box {
             background-color: var(--cream-card);
-            border-left: 3px solid var(--rose-gold);
+            border-left: 4px solid var(--rose-gold);
             padding: 20px;
             border-radius: 8px;
             margin: 30px 0;
@@ -83,6 +83,20 @@
             margin: 0;
             color: var(--ink-deep);
             font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .warning-box {
+            background-color: rgba(158, 93, 75, 0.05);
+            border-left: 4px solid var(--bronze);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        .warning-box p {
+            margin: 0;
+            color: var(--ink-deep);
+            font-weight: 500;
+            font-size: 0.95rem;
         }
         footer {
             text-align: center;
@@ -98,6 +112,7 @@
             color: var(--bronze);
             text-decoration: none;
             margin: 0 10px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -108,40 +123,60 @@
 
     <div class="container">
         <h1>Gizlilik Politikası (Privacy Policy)</h1>
-        <p>Son Güncelleme: 12 Haziran 2026</p>
+        <p style="text-align: center; font-style: italic;">Son Güncelleme: 12 Haziran 2026</p>
 
-        <p>AURA ekibi ("biz", "bizim"), kullanıcılarımızın gizliliğini korumayı taahhüt eder. Bu Gizlilik Politikası, mobil uygulamamızı ("AURA") kullanırken verilerinizin nasıl toplandığını, işlendiğini ve korunduğunu açıklar.</p>
+        <p>AURA mobil uygulamasına ("Uygulama" veya "AURA") hoş geldiniz. Bu Gizlilik Politikası, AURA ekibi ("Geliştirici", "biz", "bizim") tarafından işletilen mobil uygulama ve ilişkili servislerimizi kullanırken kişisel verilerinizin nasıl toplandığını, işlendiğini, korunduğunu ve yasal haklarınızı açıklar. Geliştirici ve kullanıcı taraflarını karşılıklı koruma altına almayı amaçlayan bu metin, yasal bir sözleşme niteliğindedir.</p>
 
         <div class="highlight-box">
-            <p>✦ Görüntü İşleme ve Kamera Politikası: AURA, kişisel renk analizi yapabilmek amacıyla kameranızı ve galeri fotoğraflarınızı kullanır. Analiz için kullanılan fotoğraflarınız tamamen cihaz üzerinde (on-device) işlenir ve analiz bittiği anda kalıcı olarak silinir. Fotoğraflarınız hiçbir sunucuya yüklenmez, depolanmaz veya üçüncü taraflarla paylaşılmaz.</p>
+            <p>✦ Görüntü İşleme, Fotoğraf ve Kamera Politikası: AURA, kişisel renk analizi yapabilmek amacıyla kameranızı ve galeri fotoğraflarınızı kullanır. Analiz için kullanılan fotoğraflarınız tamamen cihaz üzerinde (on-device) işlenir ve analiz bittiği anda kalıcı olarak bellekten silinir. Fotoğraflarınız hiçbir sunucuya yüklenmez, depolanmaz, kaydedilmez veya üçüncü taraflarla paylaşılmaz. Uygulamamız biyometrik yüz tanıma veya kimlik tespiti amacıyla veri işlemez.</p>
         </div>
 
-        <h2>1. Toplanan Bilgiler</h2>
-        <p>Uygulamamızı kullanırken aşağıdaki veri türlerini toplayabiliriz:</p>
+        <h2>1. Toplanan Veri Türleri ve Toplama Amaçları</h2>
+        <p>Uygulamayı kullanırken sunduğumuz hizmetleri yürütebilmek ve güvenliğini sağlamak amacıyla aşağıdaki asgari veriler toplanmaktadır:</p>
         <ul>
-            <li><strong>Hesap Bilgileri:</strong> Google veya Apple ile giriş yaparken kullandığınız adınız, e-posta adresiniz ve kullanıcı kimliğiniz.</li>
-            <li><strong>Kullanım Verileri:</strong> Uygulama içi analiz geçmişiniz (kaydedilen renk paletleri, gardırop parça sayıları) ve analitik veriler.</li>
-            <li><strong>Cihaz Bilgileri:</strong> Bildirim göndermek veya uygulama performansını analiz etmek amacıyla toplanan cihaz modeli ve işletim sistemi sürümü.</li>
+            <li><strong>Kullanıcı Hesap Bilgileri:</strong> Google Sign-In veya Apple Sign-In aracılığıyla kayıt olduğunuzda, bu sağlayıcılardan aktarılan benzersiz kullanıcı kimliği (UID), ad-soyad ve e-posta adresiniz hesabınızı oluşturmak, doğrulamak ve size kişiselleştirilmiş hizmet sunmak amacıyla veri tabanımızda şifrelenmiş olarak saklanır.</li>
+            <li><strong>Renk Analiz Geçmişi ve Tercihler:</strong> Uygulama içi deneyiminizin devamlılığı için kaydettiğiniz renk paletleri, gardırop parça sayıları ve kullanıcı tercihleriniz veri tabanımızda hesabınızla ilişkilendirilerek saklanır.</li>
+            <li><strong>Uygulama Kullanım ve Cihaz Verileri:</strong> Cihaz modeli, işletim sistemi sürümü, cihaz dili, anlık bildirim belirteçleri (push tokens) ve uygulama çökme raporları gibi anonim teknik veriler, uygulamanın teknik performansını analiz etmek ve hataları düzeltmek amacıyla toplanır.</li>
         </ul>
 
-        <h2>2. Google ve Apple Giriş Hizmetleri</h2>
-        <p>Uygulamamız, Google Sign-In ve Apple Sign-In hizmetlerini kullanmaktadır. Bu hizmetler üzerinden aldığımız e-posta ve isim gibi profil bilgileri yalnızca hesabınızı oluşturmak, doğrulamak ve kişiselleştirilmiş analizinizi sunmak amacıyla kullanılır. Bu veriler üçüncü şahıslara kesinlikle satılmaz.</p>
+        <h2>2. AI Analizi ve Sorumluluk Sınırı (Disclaimer)</h2>
+        <div class="warning-box">
+            <p>⚠ Önemli Sorumluluk Sınırı: AURA bünyesinde sunulan yapay zeka tabanlı renk analizi, mevsimsel sınıflandırmalar ve gardırop önerileri tamamen estetik, kişisel gelişim ve eğlence amaçlıdır. Analiz doğruluğu fotoğrafın çekildiği ışık koşullarına, kamera kalitesine ve açısına bağlı olarak değişkenlik gösterebilir. Geliştirici, analizin kesinliğini ve profesyonel renk danışmanlığı ile aynı sonuçları vereceğini taahhüt etmez. Analiz sonuçlarına dayanarak yapacağınız kıyafet, makyaj, saç boyası, aksesuar veya diğer alışveriş kararlarınızdan ve bu kararlar doğrultusunda oluşabilecek maddi/manevi zararlardan Geliştirici hiçbir şekilde sorumlu tutulamaz.</p>
+        </div>
 
-        <h2>3. Veri Güvenliği</h2>
-        <p>Hesabınızın ve verilerinizin güvenliğini sağlamak için endüstri standardı şifreleme ve güvenlik protokolleri (Supabase Auth ve Güvenli Veri Tabanı servisleri) kullanıyoruz. Ancak, internet üzerinden iletilen hiçbir verinin %100 güvenli olamayacağını hatırlatmak isteriz.</p>
+        <h2>3. Üçüncü Taraf Entegrasyonları ve Veri Aktarımı</h2>
+        <p>AURA, temel altyapısını ve ödeme sistemlerini sağlamak amacıyla güvenilir üçüncü taraf hizmet sağlayıcıları ile entegre çalışır. Bu sağlayıcıların kendi gizlilik politikaları geçerlidir ve Geliştirici, bu platformların bağımsız veri işleme faaliyetlerinden sorumlu değildir:</p>
+        <ul>
+            <li><strong>Supabase (Veri Tabanı ve Kimlik Doğrulama):</strong> Hesap bilgileriniz, kullanıcı kimliğiniz ve kaydedilen uygulama içi verileriniz, endüstri standardı güvenlik önlemlerine sahip şifrelenmiş Supabase sunucularında saklanır.</li>
+            <li><strong>Apple App Store / Google Play Store (Ödemeler ve Abonelikler):</strong> Premium abonelik satın alımları ve faturalandırma işlemleri tamamen Apple ve Google'ın kendi güvenli altyapıları üzerinden yürütülür. Finansal verileriniz (kredi kartı, banka bilgileri vb.) hiçbir şekilde Geliştirici tarafından görülmez, toplanmaz veya saklanmaz.</li>
+            <li><strong>RevenueCat (Abonelik Yönetimi):</strong> Abonelik durumunuzun doğrulanması ve yönetilmesi amacıyla benzersiz kullanıcı kimliğiniz (UID) ve abonelik paket bilginiz RevenueCat API'leri ile paylaşılır.</li>
+        </ul>
 
-        <h2>4. Kullanıcı Hakları ve Silme İstemi</h2>
-        <p>Dilediğiniz zaman uygulama içerisindeki Ayarlar menüsünden hesabınızı ve hesabınıza bağlı tüm analiz geçmişinizi kalıcı olarak silebilirsiniz. Silme işlemi tamamlandığında, sunucularımızdaki tüm verileriniz anında ve kalıcı olarak temizlenir.</p>
+        <h2>4. Kullanıcı Hakları ve Veri Silme İstemi (Data Deletion)</h2>
+        <p>Kullanıcılarımız, kişisel verileri üzerinde tam kontrole sahiptir. Dilediğiniz zaman uygulama içerisindeki Ayarlar menüsünde bulunan "Hesabımı Sil" (Delete Account) seçeneğini kullanarak hesabınızı kapatabilirsiniz. Bu işlem gerçekleştirildiğinde:</p>
+        <ul>
+            <li>Supabase veri tabanındaki hesabınız, profil bilgileriniz (isim, e-posta) ve analiz geçmişiniz kalıcı olarak ve geri döndürülemez şekilde anında silinir.</li>
+            <li>Silme talebinizin işleme alınmasıyla ilgili herhangi bir teknik aksaklık yaşamanız durumunda, <strong>support@auracolorapp.com</strong> adresine e-posta göndererek verilerinizin el ile silinmesini de talep edebilirsiniz.</li>
+        </ul>
 
-        <h2>5. İletişim</h2>
-        <p>Bu Gizlilik Politikası ile ilgili herhangi bir sorunuz veya talebiniz olması durumunda bizimle iletişime geçebilirsiniz:</p>
-        <p>E-posta: auracolorapp@gmail.com</p>
+        <h2>5. Veri Güvenliği ve Şifreleme</h2>
+        <p>Verilerinizin yetkisiz erişime, kayba veya kötüye kullanıma karşı korunması için TLS/SSL şifreleme protokolleri ve güvenli bulut mimarileri kullanmaktayız. Ancak, internet üzerinden gerçekleştirilen hiçbir veri aktarımının veya dijital depolama yönteminin %100 güvenli olduğu garanti edilemez. Geliştirici, siber saldırılar veya veri tabanı sağlayıcılarından kaynaklanan beklenmedik teknik sızıntılardan doğacak dolaylı zararlardan yasal sınırların izin verdiği ölçüde sorumlu değildir.</p>
+
+        <h2>6. Çocukların Gizliliği</h2>
+        <p>AURA, 13 yaşın altındaki çocukların doğrudan kullanımına yönelik tasarlanmamıştır. Bilerek ve isteyerek 13 yaşın altındaki çocuklardan kişisel veri toplamıyoruz. Eğer 13 yaşından küçük bir çocuğun bize kişisel bilgi verdiğini fark ederseniz, lütfen support@auracolorapp.com üzerinden bizimle iletişime geçin. Bu verileri sunucularımızdan derhal sileceğiz.</p>
+
+        <h2>7. Yasal Değişiklikler ve Bildirimler</h2>
+        <p>Bu Gizlilik Politikası metnini, yasal mevzuattaki değişikliklere veya yeni uygulama özelliklerine uyum sağlamak amacıyla zaman zaman güncelleme hakkımız saklıdır. Önemli bir değişiklik yapılması durumunda, uygulama içinden veya güncel metni bu sayfada yayınlayarak sizi bilgilendireceğiz. Güncelleme sonrasında Uygulamayı kullanmaya devam etmeniz, güncel Gizlilik Politikası şartlarını kabul ettiğiniz anlamına gelir.</p>
+
+        <h2>8. İletişim ve Yasal Hak Talepleri</h2>
+        <p>Kişisel verilerinizle ilgili haklarınızı kullanmak, bilgi almak veya politikaya dair sorularınızı iletmek için yasal temsilcimizle iletişime geçebilirsiniz:</p>
+        <p style="font-weight: 500; color: var(--bronze);">E-posta: support@auracolorapp.com</p>
     </div>
 
     <footer>
         <div class="footer-links">
             <a href="index.html">Ana Sayfa</a>
-            <a href="terms.html">Kullanım Koşulları</a>
+            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Kullanım Koşulları (EULA)</a>
         </div>
         <p>&copy; 2026 AURA. Tüm hakları saklıdır.</p>
     </footer>
