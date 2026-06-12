@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA - Kişisel Renk Analizi ve Stil Rehberiniz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream-bg: #FAF6F0;
+            --cream-card: #F5EDE2;
+            --ink-deep: #1A2238;
+            --ink-mid: #4A5568;
+            --rose-gold: #C48A7A;
+            --bronze: #9E5D4B;
+            --cta-black: #2A2A28;
+            --glass-white: rgba(255, 255, 255, 0.45);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: var(--cream-bg);
+            color: var(--ink-deep);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 30px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            letter-spacing: 4px;
+            color: var(--bronze);
+            text-decoration: none;
+            font-weight: 400;
+        }
+        nav a {
+            color: var(--ink-mid);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-left: 24px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--rose-gold);
+        }
+        .hero {
+            max-width: 1200px;
+            width: 100%;
+            margin: 60px auto flex-grow;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            flex-grow: 1;
+        }
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+                margin: 20px auto;
+            }
+            .hero-image-container {
+                order: 2;
+            }
+        }
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            line-height: 1.15;
+            color: var(--ink-deep);
+            margin-bottom: 24px;
+            font-weight: 300;
+        }
+        .hero-text h1 span {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--rose-gold);
+        }
+        .hero-text p {
+            font-size: 1.15rem;
+            color: var(--ink-mid);
+            line-height: 1.8;
+            margin-bottom: 36px;
+            font-weight: 300;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+        }
+        @media (max-width: 900px) {
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+        .btn {
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary {
+            background-color: var(--cta-black);
+            color: #FFFFFF;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+        .btn-secondary {
+            background-color: var(--glass-white);
+            color: var(--ink-deep);
+            border: 1px solid rgba(28, 28, 26, 0.15);
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.65);
+        }
+        .hero-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .aura-orb-bg {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(196, 138, 122, 0.15) 0%, rgba(139, 126, 184, 0.08) 40%, transparent 70%);
+            filter: blur(20px);
+            z-index: 1;
+            animation: pulse-aura 10s infinite alternate;
+        }
+        @keyframes pulse-aura {
+            0% { transform: scale(0.9) translate(0, 0); }
+            100% { transform: scale(1.1) translate(10px, 10px); }
+        }
+        .app-preview-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 40px;
+            width: 300px;
+            height: 520px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            z-index: 2;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .app-icon {
+            width: 76px;
+            height: 76px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #FAF6F0, #F5EDE2, #EDE4D5);
+            border: 1px solid rgba(196, 138, 122, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--bronze);
+            letter-spacing: 2px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(158, 93, 75, 0.1);
+        }
+        .app-title-preview {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 300;
+        }
+        .app-title-preview span {
+            font-size: 0.9rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--rose-gold);
+            display: block;
+            margin-top: 8px;
+        }
+        .palette-preview {
+            display: flex;
+            gap: 12px;
+            margin: 40px 0;
+        }
+        .palette-color {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid rgba(28, 28, 26, 0.1);
+        }
+        .app-mock-footer {
+            font-size: 0.8rem;
+            color: var(--ink-mid);
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+        footer {
+            background-color: var(--cream-card);
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid rgba(196, 138, 122, 0.15);
+            margin-top: auto;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            letter-spacing: 4px;
+            color: var(--bronze);
+            margin-bottom: 20px;
+        }
+        .footer-links {
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: var(--ink-mid);
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: var(--rose-gold);
+        }
+        .copyright {
+            font-size: 0.8rem;
+            color: var(--ink-mid);
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">AURA</a>
+        <nav>
+            <a href="terms.html">Kullanım Koşulları</a>
+            <a href="privacy.html">Gizlilik Politikası</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Kendi Doğal <span>Işıltınızı</span> Keşfedin.</h1>
+            <p>Munsell Renk Teorisi ve yapay zeka ile güçlendirilmiş AURA, cilt alt tonunuzu analiz ederek gardırobunuza ve makyajınıza en çok yakışan kişisel mevsimsel renk paletinizi belirler.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">App Store'dan İndir</a>
+                <a href="#" class="btn btn-secondary">Google Play'den Al</a>
+            </div>
+        </div>
+        <div class="hero-image-container">
+            <div class="aura-orb-bg"></div>
+            <div class="app-preview-card">
+                <div class="app-icon">A</div>
+                <div class="app-title-preview">
+                    AURA
+                    <span>Renk Pasaportu</span>
+                </div>
+                <div class="palette-preview">
+                    <div class="palette-color" style="background-color: #0F172A;"></div>
+                    <div class="palette-color" style="background-color: #370617;"></div>
+                    <div class="palette-color" style="background-color: #8BAF8B;"></div>
+                    <div class="palette-color" style="background-color: #7209B7;"></div>
+                    <div class="palette-color" style="background-color: #BC6C25;"></div>
+                </div>
+                <div class="app-mock-footer">Aura Color Analysis AI</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">AURA</div>
+        <div class="footer-links">
+            <a href="terms.html">Kullanım Koşulları</a>
+            <a href="privacy.html">Gizlilik Politikası</a>
+            <a href="mailto:support@auracolorapp.com">Destek & İletişim</a>
+        </div>
+        <p class="copyright">&copy; 2026 AURA. Tüm hakları saklıdır.</p>
+    </footer>
+</body>
+</html>
