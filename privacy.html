@@ -128,7 +128,7 @@
         <p>Welcome to AURA ("Application" or "AURA"). This Privacy Policy describes how the AURA team ("Developer", "we", "us", or "our") collects, processes, protects, and handles your personal information when you use our mobile application and related services. This document aims to establish clear, legally binding terms that protect both the Developer and our users.</p>
 
         <div class="highlight-box">
-            <p>✦ Image Processing, Photos, and Camera Policy: AURA utilizes your device camera and photo library access solely to perform seasonal color analysis. All processing of uploaded photos is performed locally on-device. Photos are immediately deleted from device memory once the analysis is completed. We do not transmit, save, store, or share your photographs to any server or third-party entity. Furthermore, our image analysis does not collect biometric data, facial signatures, or face geometry for personal identification purposes.</p>
+            <p>✦ Image Processing, Photos, and Camera Policy: AURA utilizes your device camera and photo library access solely to perform seasonal color analysis. With your explicit consent, uploaded photos are transmitted securely to a third-party AI provider (OpenAI API) for temporary color analysis. Photos are immediately processed and are not stored, saved, or shared on our servers or by the third-party provider, and are not used for training AI models. Furthermore, our image analysis does not collect biometric data, facial signatures, or face geometry for personal identification purposes.</p>
         </div>
 
         <h2>1. Types of Data We Collect and Why</h2>
@@ -145,11 +145,11 @@
         </div>
 
         <h2>3. Third-Party Integrations and Data Transfers</h2>
-        <p>AURA integrates trusted third-party service providers to power its database and payment operations. These providers govern your data under their respective privacy policies, and the Developer is not responsible for their independent data processing practices:</p>
+        <p>AURA integrates trusted third-party service providers to power its database, AI analysis, and payment operations. These providers govern your data under their respective privacy policies, and the Developer is not responsible for their independent data processing practices:</p>
         <ul>
             <li><strong>Supabase (Authentication and Database):</strong> Your account credentials, profile details, and saved color histories are stored securely on encrypted database clusters hosted by Supabase.</li>
+            <li><strong>OpenAI (AI Analysis):</strong> With user consent, user photos are transmitted securely to OpenAI API to perform color analysis. Photo data is processed transiently and is not stored or used for model training.</li>
             <li><strong>Apple App Store / Google Play Store (Billing & Payments):</strong> All premium in-app purchases and subscriptions are handled entirely by Apple and Google. Your financial details (including credit cards, bank account numbers, or billing info) are never processed, seen, or stored by the Developer.</li>
-            <li><strong>RevenueCat (Subscription Management):</strong> Your anonymous unique user ID (UID) and active subscription status are validated using RevenueCat APIs to grant premium access.</li>
         </ul>
 
         <h2>4. User Rights and Data Deletion</h2>
