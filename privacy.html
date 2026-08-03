@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" id="html-root">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AURA - Privacy Policy</title>
+    <title>AURA — Privacy Policy / Gizlilik Politikası</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
@@ -42,10 +42,42 @@
             font-weight: 400;
         }
 
+        .lang-switch {
+            margin-top: 18px;
+            display: inline-flex;
+            gap: 4px;
+            background: rgba(196, 138, 122, 0.08);
+            padding: 4px;
+            border-radius: 20px;
+        }
+
+        .lang-btn {
+            border: none;
+            background: transparent;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            padding: 7px 18px;
+            border-radius: 16px;
+            color: var(--ink-mid);
+            cursor: pointer;
+            transition: background-color 0.15s ease, color 0.15s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--bronze);
+            color: #fff;
+        }
+
         .container {
             max-width: 800px;
             margin: 40px auto;
             padding: 0 24px;
+        }
+
+        .hidden {
+            display: none !important;
         }
 
         h1 {
@@ -65,6 +97,15 @@
             margin-bottom: 16px;
             border-bottom: 1px solid rgba(196, 138, 122, 0.15);
             padding-bottom: 8px;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--ink-deep);
+            margin-top: 24px;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
         p {
@@ -115,6 +156,48 @@
             font-size: 0.95rem;
         }
 
+        .table-wrap {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 8px;
+            border: 1px solid rgba(196, 138, 122, 0.15);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 560px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid rgba(196, 138, 122, 0.15);
+            font-size: 0.88rem;
+            color: var(--ink-mid);
+            vertical-align: top;
+            font-weight: 300;
+        }
+
+        th {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--ink-deep);
+            font-weight: 600;
+            background-color: var(--cream-card);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .liability-list li {
+            margin-bottom: 14px;
+        }
+
+        .liability-list strong {
+            color: var(--ink-deep);
+        }
+
         footer {
             text-align: center;
             padding: 60px 20px 40px;
@@ -133,116 +216,492 @@
             margin: 0 10px;
             font-weight: 500;
         }
+
+        a {
+            color: var(--bronze);
+        }
     </style>
 </head>
 
 <body>
     <header>
         <a href="index.html" class="logo">AURA</a>
+        <div class="lang-switch" role="group" aria-label="Language / Dil">
+            <button type="button" class="lang-btn" id="btn-tr" onclick="window.setAuraLang('tr')">TR</button>
+            <button type="button" class="lang-btn" id="btn-en" onclick="window.setAuraLang('en')">EN</button>
+        </div>
     </header>
 
     <div class="container">
-        <h1>Privacy Policy</h1>
-        <p style="text-align: center; font-style: italic;">Last Updated: June 22, 2026</p>
 
-        <p>Welcome to AURA ("Application" or "AURA"). This Privacy Policy describes how the AURA team ("Developer",
-            "we", "us", or "our") collects, processes, protects, and handles your personal information when you use our
-            mobile application and related services. This document aims to establish clear, legally binding terms that
-            protect both the Developer and our users.</p>
+        <!-- ============================= TÜRKÇE ============================= -->
+        <div id="lang-tr" class="lang-block">
+            <h1>Gizlilik Politikası</h1>
+            <p style="text-align: center; font-style: italic;">Son Güncelleme: 3 Ağustos 2026</p>
 
-        <div class="highlight-box">
-            <p>✦ Image Processing, Photos, and Camera Policy: AURA utilizes your device camera and photo library access
-                solely to perform seasonal color analysis. With your explicit consent, uploaded photos are transmitted
-                securely to a third-party AI provider (OpenAI API) for temporary color analysis. Photos are immediately
-                processed and are not stored, saved, or shared on our servers or by the third-party provider, and are
-                not used for training AI models. Furthermore, our image analysis does not collect biometric data, facial
-                signatures, or face geometry for personal identification purposes.</p>
+            <h2>1. Giriş ve Veri Sorumlusu</h2>
+            <p>AURA'ya ("Uygulama" veya "AURA") hoş geldiniz. Bu Gizlilik Politikası, AURA'yı geliştiren ve işleten
+                ekip ("Geliştirici", "biz", "bize" veya "bizim") olarak, mobil uygulamamızı ve ilgili hizmetlerimizi
+                kullanırken kişisel verilerinizi nasıl topladığımızı, işlediğimizi, koruduğumuzu ve kullandığımızı
+                açıklar. AURA, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında ve Avrupa Birliği
+                kullanıcıları için Genel Veri Koruma Tüzüğü (GDPR) kapsamında veri sorumlusu sıfatıyla hareket eder.
+                Bu politikayla ilgili sorularınız için bize <strong>auracolorapp@gmail.com</strong> adresinden
+                ulaşabilirsiniz.</p>
+
+            <h2>2. Topladığımız Veriler</h2>
+            <p>App Store Connect'teki gizlilik etiketimizde beyan ettiğimiz üzere, AURA aşağıdaki 7 veri tipini
+                toplar. Aşağıdaki tabloda her veri tipini neden topladığımızı, hangi hukuki dayanağa göre
+                işlediğimizi ve kimliğinizle ilişkilendirilip ilişkilendirilmediğini bulabilirsiniz.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Veri Tipi</th>
+                            <th>Neden Topluyoruz</th>
+                            <th>Hukuki Dayanak</th>
+                            <th>Kimliğe Bağlı mı</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>E-posta Adresi</td>
+                            <td>Hesap oluşturma, kimlik doğrulama, destek iletişimi</td>
+                            <td>Sözleşmenin ifası (KVKK m.5/2-c, GDPR Md.6/1-b)</td>
+                            <td>Evet</td>
+                        </tr>
+                        <tr>
+                            <td>Ad Soyad</td>
+                            <td>Profilinizi kişiselleştirmek, hesabınızı tanımlamak</td>
+                            <td>Sözleşmenin ifası</td>
+                            <td>Evet</td>
+                        </tr>
+                        <tr>
+                            <td>Kullanıcı Kimliği (User ID)</td>
+                            <td>Hesabınızı benzersiz şekilde tanımlamak, verilerinizi ilişkilendirmek</td>
+                            <td>Sözleşmenin ifası</td>
+                            <td>Evet</td>
+                        </tr>
+                        <tr>
+                            <td>Satın Alma Geçmişi</td>
+                            <td>Abonelik durumunuzu doğrulamak, premium özellik erişimini yönetmek</td>
+                            <td>Sözleşmenin ifası</td>
+                            <td>Evet</td>
+                        </tr>
+                        <tr>
+                            <td>Ürün Etkileşimi (Product Interaction)</td>
+                            <td>Hangi özellikleri kullandığınızı anlamak, ürünü iyileştirmek</td>
+                            <td>Meşru menfaat (KVKK m.5/2-f, GDPR Md.6/1-f)</td>
+                            <td>Evet</td>
+                        </tr>
+                        <tr>
+                            <td>Çökme Verisi (Crash Data)</td>
+                            <td>Uygulama kararlılığını izlemek, hataları gidermek</td>
+                            <td>Meşru menfaat</td>
+                            <td>Hayır (toplu, Apple tarafından)</td>
+                        </tr>
+                        <tr>
+                            <td>Performans Verisi</td>
+                            <td>Uygulama hızını ve performansını izlemek</td>
+                            <td>Meşru menfaat</td>
+                            <td>Hayır (toplu, Apple tarafından)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>Çökme ve performans verisi hakkında not:</strong> Bu veriler kendi kodumuz tarafından
+                toplanmaz — uygulamamızda hiçbir çökme raporlama SDK'sı (ör. Crashlytics, Sentry) bulunmamaktadır.
+                Yalnızca cihaz ayarlarınızda "Analiz ve İyileştirmeler" paylaşımını açtıysanız, bu veriler Apple'ın
+                kendi işletim sistemi düzeyindeki raporlama mekanizması aracılığıyla, toplu ve kimliğinize doğrudan
+                bağlanmamış biçimde bize erişilebilir hale gelir.</p>
+
+            <h2>3. Fotoğraflar ve Yüz Görüntüsü</h2>
+            <div class="highlight-box">
+                <p>✦ Analiz için kullandığınız fotoğraf yalnızca açık rızanızla alınır ve güvenli biçimde
+                    OpenAI API'ye geçici, otomatik analiz amacıyla iletilir. Analiz sırasında yapay zekâ modelimiz
+                    yüzünüzde alın, yanak ve çene gibi genel referans noktalarını yalnızca ten tonu örneklemesi
+                    yapmak için kullanabilir; bu noktalar biyometrik tanımlama verisi değildir, sizi tanımak veya
+                    kimliğinizi belirlemek için kullanılmaz, kimliğinizle ilişkilendirilmez, analiz tamamlandıktan
+                    sonra saklanmaz ve hiçbir yapay zekâ modelinin eğitiminde kullanılmaz. Fotoğrafın kendisi
+                    yalnızca analiz isteği süresince işlenir; bizim sunucularımızda hiçbir zaman saklanmaz,
+                    kaydedilmez veya üçüncü kişilerle paylaşılmaz. OpenAI, fotoğrafı yalnızca isteği yanıtlamak için
+                    işler ve kendi API politikası gereği kötüye kullanım denetimi amacıyla sınırlı bir süre
+                    saklayabilir; bu sürenin sonunda veri silinir ve hiçbir yapay zekâ modelinin eğitiminde
+                    kullanılmaz.</p>
+            </div>
+            <p>Bu rızayı istediğiniz zaman Uygulama içinde <strong>Ayarlar → Yapay Zeka İznimi Geri Çek</strong>
+                adımından geri çekebilirsiniz; geri çektiğinizde bir sonraki analizden önce onayınız tekrar
+                istenir.</p>
+
+            <h2>4. Analitik ve Ürün Kullanım Verisi</h2>
+            <p>Uygulamayı nasıl kullandığınızı anlamak ve ürünü iyileştirmek için sınırlı sayıda ürün kullanım
+                olayını kaydediyoruz: uygulama açılışı, onboarding adımları, kayıt başlatma/tamamlama, analiz
+                başlatma/tamamlama ve süresi, paylaşım dokunuşları, paywall görüntüleme/kapatma, deneme/satın alma
+                başlatma/tamamlama, kilitli özellik dokunmaları, portre seçimi, renk tarayıcı kullanımı ve gardırop
+                parçası ekleme gibi olaylar.</p>
+            <p>Bu olaylar <strong>yalnızca kendi Supabase veritabanımızda</strong> saklanır, hesabınızla
+                ilişkilendirilir ve hiçbir üçüncü taraf analitik sağlayıcısına (ör. Google Analytics, Amplitude,
+                Mixpanel, Firebase) gönderilmez. Bu veriler reklam amacıyla kullanılmaz; tek amacımız ürünü ve
+                kullanıcı deneyimini iyileştirmektir.</p>
+
+            <h2>5. İzleme (Tracking) Beyanı</h2>
+            <div class="warning-box">
+                <p>AURA kullanıcılarını izlemez. Uygulamada hiçbir reklam ağı, attribution veya üçüncü taraf
+                    analitik SDK'sı bulunmaz. Reklam tanımlayıcınıza (IDFA) erişmeyiz. Verilerinizi hiçbir veri
+                    simsarına satmaz, reklam amacıyla üçüncü taraflarla paylaşmayız.</p>
+            </div>
+            <p>App Store Connect'teki gizlilik etiketimizde hiçbir veri tipi "izleme amaçlı kullanılır" olarak
+                işaretli değildir. AURA; AdMob, Facebook SDK, AppsFlyer, Adjust, Amplitude, Mixpanel, Firebase,
+                Sentry veya Crashlytics gibi hiçbir reklam/attribution/analitik SDK'sı içermez ve App Tracking
+                Transparency (ATT) izni istemez.</p>
+
+            <h2>6. Üçüncü Taraf Hizmetler</h2>
+            <p>AURA'yı çalıştırmak için aşağıdaki güvenilir hizmet sağlayıcılarla çalışıyoruz. Bu sağlayıcılar,
+                kendi gizlilik politikaları kapsamında sizin verilerinizi yönetir:</p>
+            <ul>
+                <li><strong>Supabase</strong> (barındırma, veritabanı, kimlik doğrulama) — hesap bilgileriniz,
+                    analiz geçmişiniz ve ürün kullanım olaylarınız burada saklanır.
+                    <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Gizlilik politikası</a></li>
+                <li><strong>OpenAI API</strong> (fotoğrafın geçici analizi) — rızanızla gönderilen fotoğraf, yalnızca
+                    analiz isteği süresince işlenir.
+                    <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">Gizlilik politikası</a></li>
+                <li><strong>Apple Sign-In / Google Sign-In</strong> (kimlik doğrulama) — bu yöntemlerden birini
+                    seçerseniz hesap oluşturmak için ad, e-posta ve benzersiz kimlikçi paylaşılır.
+                    <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a> ·
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a></li>
+                <li><strong>Apple App Store / Google Play</strong> (ödeme işlemleri) — abonelik ve satın alma
+                    işlemleriniz tamamen Apple ve Google tarafından yürütülür; kart/banka bilgileriniz bize hiçbir
+                    zaman ulaşmaz.
+                    <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a> ·
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a></li>
+                <li><strong>Expo Push Notification Servisi</strong> (bildirim iletimi) — izin verdiğiniz bildirimleri
+                    cihazınıza ulaştırmak için push token'ınızı kullanır.
+                    <a href="https://expo.dev/privacy" target="_blank" rel="noopener">Gizlilik politikası</a></li>
+            </ul>
+
+            <h2>7. Yurt Dışına Veri Aktarımı</h2>
+            <p>Verileriniz, Supabase ve OpenAI'ın sunucu altyapısı gereği Türkiye dışındaki ülkelerde (örneğin
+                Amerika Birleşik Devletleri veya Avrupa Birliği ülkeleri) barındırılabilir ve işlenebilir. Bu
+                aktarımlar, KVKK Madde 9 kapsamında açık rızanıza ve/veya Kişisel Verileri Koruma Kurulu'nun
+                belirlediği yeterli korumaya sahip ülke ya da standart sözleşme hükümleri mekanizmalarına
+                dayanılarak; Avrupa Birliği kullanıcıları için ise GDPR'ın standart sözleşme hükümleri (SCC)
+                çerçevesine uygun olarak gerçekleştirilir.</p>
+
+            <h2>8. Veri Saklama Süresi</h2>
+            <p>Verileriniz, hesabınız aktif olduğu sürece saklanır. Hesabınızı <strong>Ayarlar → Hesabı Sil</strong>
+                yoluyla sildiğinizde, tüm profil bilgileriniz, analiz geçmişiniz ve ürün kullanım kayıtlarınız
+                derhal ve kalıcı olarak silinir. Bu kayıtlar, felaket kurtarma
+                amaçlı yedeklerimizde en fazla 30 gün daha kalabilir, bu sürenin sonunda yedeklerden de otomatik
+                olarak temizlenir. Fotoğraflarınız hiçbir zaman saklanmadığı için bunlar için ayrıca bir saklama
+                süresi söz konusu değildir.</p>
+
+            <h2>9. Haklarınız (GDPR + KVKK)</h2>
+            <p>KVKK Madde 11 ve GDPR Madde 15-21 kapsamında aşağıdaki haklara sahipsiniz: verilerinize erişme,
+                yanlış veya eksik verilerin düzeltilmesini isteme, verilerinizin silinmesini isteme, işlemeyi
+                kısıtlama, verilerinizi taşınabilir bir formatta talep etme, işlemeye itiraz etme ve verdiğiniz
+                rızayı istediğiniz zaman geri çekme.</p>
+            <p>Bu haklarınızı kullanmak için Uygulama içinde <strong>Ayarlar → Hesabı Sil</strong> adımını
+                kullanabilir veya <strong>auracolorapp@gmail.com</strong> adresine e-posta gönderebilirsiniz. KVKK
+                kapsamındaki taleplere en geç 30 gün içinde yanıt veririz.</p>
+
+            <h2>10. Çocukların Gizliliği</h2>
+            <p>AURA 13 yaşın altındaki bireylere yönelik değildir. 13 yaşın altındaki çocuklardan bilerek kişisel
+                veri toplamayız. Bir çocuğun bize
+                kişisel veri sağladığını fark edersek, bu veriyi sistemlerimizden derhal sileriz. Bir çocuğun
+                bizimle veri paylaştığını fark ederseniz lütfen <strong>auracolorapp@gmail.com</strong> adresinden
+                bize bildirin; ilgili veriyi derhal sileriz.</p>
+
+            <h2>11. Değişiklikler</h2>
+            <p>Bu Gizlilik Politikasını, mevzuat değişikliklerini veya uygulama yeteneklerindeki güncellemeleri
+                yansıtmak için zaman zaman güncelleyebiliriz. Güncel sürümün tarihi bu sayfanın başında gösterilir.
+                Önemli değişikliklerde sizi uygulama içi bildirimle bilgilendireceğiz. Güncellemelerden sonra
+                AURA'yı kullanmaya devam etmeniz, güncellenmiş şartları kabul ettiğiniz anlamına gelir.</p>
+
+            <h2>12. İletişim</h2>
+            <p>Bu Gizlilik Politikası veya verileriniz hakkında sorularınız, talepleriniz ya da hukuki
+                başvurularınız için bize ulaşın:</p>
+            <p style="font-weight: 500; color: var(--bronze);">E-posta: auracolorapp@gmail.com</p>
+
+            <h2>Sorumluluğun Sınırlandırılması</h2>
+            <ul class="liability-list">
+                <li><strong>Amaç sınırı:</strong> AURA'nın renk analizi sonuçları estetik, eğitsel ve kişisel ilgi
+                    amaçlıdır; tıbbi, dermatolojik, psikolojik veya profesyonel bir görüş, teşhis ya da tavsiye
+                    niteliği taşımaz.</li>
+                <li><strong>Doğruluk garantisi verilmez:</strong> Analiz yapay zekâ ile üretilir; ışık koşulları,
+                    kamera kalitesi ve fotoğrafın niteliğine göre sonuç değişebilir. Sonuçların kesinliği,
+                    eksiksizliği veya belirli bir amaca uygunluğu konusunda garanti verilmez.</li>
+                <li><strong>Satın alma kararları:</strong> Kullanıcının uygulamanın önerilerine dayanarak yaptığı
+                    kıyafet, kozmetik veya diğer harcamalardan Geliştirici sorumlu tutulamaz.</li>
+                <li><strong>Üçüncü taraf hizmetler:</strong> OpenAI, Supabase, Apple ve Google'ın kendi
+                    sistemlerindeki kesinti, hata veya güvenlik olaylarından Geliştirici sorumlu değildir; bu
+                    hizmetlerin kendi koşulları geçerlidir.</li>
+                <li><strong>Güvenlik taahhüdünün sınırı:</strong> Sektör standardı önlemler (şifreli aktarım,
+                    erişim kontrolü) uygulanır, ancak internet üzerinden hiçbir iletim yönteminin %100 güvenli
+                    olmadığını açıkça belirtiriz; mutlak bir güvenlik garantisi vermeyiz.</li>
+                <li><strong>Kullanıcının sorumluluğu:</strong> Kullanıcı, yüklediği fotoğrafın kendisine ait
+                    olduğunu veya yükleme hakkına sahip olduğunu beyan eder; başkasına ait fotoğraf yüklenmesinden
+                    doğan sorumluluk kullanıcıya aittir.</li>
+                <li><strong>Uygulanacak hukuk:</strong> Bu politika Türkiye Cumhuriyeti hukukuna tabidir ve
+                    uyuşmazlıklarda Türkiye mahkemeleri yetkilidir. Bu hüküm, kullanıcının bulunduğu ülkedeki
+                    zorunlu tüketici haklarını ortadan kaldırmaz.</li>
+                <li><strong>Hizmet sürekliliği:</strong> Özellikler değiştirilebilir veya sonlandırılabilir; bu
+                    durumda aktif aboneliğinize ilişkin iade süreci Apple veya Google üzerinden yürütülür.</li>
+            </ul>
+
+            <div style="margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(196, 138, 122, 0.1); text-align: center;">
+                <div class="footer-links">
+                    <a href="index.html">Ana Sayfa</a>
+                    <a href="support.html">Destek ve İletişim</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Kullanım Koşulları (EULA)</a>
+                </div>
+            </div>
         </div>
 
-        <h2>1. Types of Data We Collect and Why</h2>
-        <p>To provide and maintain our services, we collect the following minimal categories of data:</p>
-        <ul>
-            <li><strong>User Account Information:</strong> If you sign up using Google Sign-In or Apple Sign-In, we
-                collect the unique user ID (UID), full name, and email address shared by these providers. This data is
-                stored in our database in an encrypted format to create, authenticate, and manage your AURA account.
-            </li>
-            <li><strong>Color Analysis History:</strong> To ensure the persistence of your experience, your saved
-                seasonal color palettes, custom color swatches, and wardrobe counts are stored in our secure database
-                linked to your account.</li>
-            <li><strong>Device and Usage Information:</strong> Technical data such as your device model, operating
-                system version, device language, push notification tokens, and crash logs are collected anonymously to
-                analyze application performance, fix bugs, and optimize stability.</li>
-        </ul>
+        <!-- ============================= ENGLISH ============================= -->
+        <div id="lang-en" class="lang-block">
+            <h1>Privacy Policy</h1>
+            <p style="text-align: center; font-style: italic;">Last Updated: August 3, 2026</p>
 
-        <h2>2. AI Analysis and Limitation of Liability (Disclaimer)</h2>
-        <div class="warning-box">
-            <p>⚠ Important Limitation of Liability: All artificial intelligence-based color analyses, seasonal
-                classifications, and wardrobe styling suggestions provided within AURA are for aesthetic, educational,
-                and entertainment purposes only. The accuracy of the analysis is heavily dependent on factors beyond our
-                control, including lighting conditions, camera quality, and photo angles. The Developer does not
-                guarantee or warrant the accuracy, suitability, or absolute precision of the color recommendations. The
-                Developer shall not be liable or responsible for any decisions made by the user based on the analysis
-                (including, but not limited to, purchases of clothing, hair dye, makeup, or jewelry) or for any
-                financial losses or dissatisfaction arising from such decisions.</p>
+            <h2>1. Introduction and Data Controller</h2>
+            <p>Welcome to AURA ("Application" or "AURA"). This Privacy Policy describes how the team that develops
+                and operates AURA ("Developer", "we", "us", or "our") collects, processes, protects, and uses your
+                personal data when you use our mobile application and related services. AURA acts as the data
+                controller under Turkey's Law on the Protection of Personal Data No. 6698 (KVKK), and as the data
+                controller under the General Data Protection Regulation (GDPR) for users in the European Union. If
+                you have questions about this policy, you can reach us at <strong>auracolorapp@gmail.com</strong>.
+            </p>
+
+            <h2>2. Data We Collect</h2>
+            <p>As declared in our App Store Connect privacy label, AURA collects the following 7 data types. The
+                table below lists why we collect each type, the legal basis we rely on, and whether it is linked to
+                your identity.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data Type</th>
+                            <th>Why We Collect It</th>
+                            <th>Legal Basis</th>
+                            <th>Linked to You</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Email Address</td>
+                            <td>Account creation, authentication, support communication</td>
+                            <td>Performance of a contract (GDPR Art. 6(1)(b), KVKK Art. 5/2-c)</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>Personalizing your profile, identifying your account</td>
+                            <td>Performance of a contract</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>User ID</td>
+                            <td>Uniquely identifying your account, associating your data</td>
+                            <td>Performance of a contract</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Purchase History</td>
+                            <td>Verifying your subscription status, managing premium feature access</td>
+                            <td>Performance of a contract</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Product Interaction</td>
+                            <td>Understanding which features you use, improving the product</td>
+                            <td>Legitimate interest (GDPR Art. 6(1)(f), KVKK Art. 5/2-f)</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Crash Data</td>
+                            <td>Monitoring app stability, fixing bugs</td>
+                            <td>Legitimate interest</td>
+                            <td>No (aggregated, via Apple)</td>
+                        </tr>
+                        <tr>
+                            <td>Performance Data</td>
+                            <td>Monitoring app speed and performance</td>
+                            <td>Legitimate interest</td>
+                            <td>No (aggregated, via Apple)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p><strong>A note on crash and performance data:</strong> This data is not collected by our own code —
+                the app contains no crash-reporting SDK (e.g. Crashlytics, Sentry). Only if you have opted in to
+                share "Analytics & Improvements" in your device settings does this data become accessible to us,
+                aggregated and not directly tied to your identity, through Apple's own OS-level reporting
+                mechanism.</p>
+
+            <h2>3. Photos and Facial Imagery</h2>
+            <div class="highlight-box">
+                <p>✦ The photo you use for analysis is only captured with your explicit consent and is transmitted
+                    securely to the OpenAI API for temporary, automated analysis. During analysis, our AI model may
+                    briefly locate general reference points on your face — such as the forehead, cheeks, and chin —
+                    solely to sample skin tone color at those points. These reference points are not biometric
+                    identifiers: they are never used to recognize or identify you, are never linked to your
+                    identity, are not retained after the analysis completes, and are never used to train any AI
+                    model. The photo itself is processed only for the duration of the analysis request; it is
+                    never stored, saved, or shared with third parties on our servers. OpenAI processes the photo
+                    solely to fulfil the request and, under its own API policy, may retain it for a limited period
+                    for abuse monitoring; after that period the data is deleted, and it is never used to train any
+                    AI model.</p>
+            </div>
+            <p>You can withdraw this consent at any time within the Application via
+                <strong>Settings → Withdraw AI Consent</strong>; once withdrawn, you will be asked to consent again
+                before your next analysis.</p>
+
+            <h2>4. Analytics and Product Usage Data</h2>
+            <p>To understand how you use the app and to improve the product, we record a limited set of product
+                usage events: app open, onboarding steps, signup started/completed, analysis started/completed and
+                its duration, share taps, paywall viewed/dismissed, trial/purchase started/completed, locked
+                feature taps, portrait selection, color scanner usage, and wardrobe item added.</p>
+            <p>These events are stored <strong>only in our own Supabase database</strong>, are linked to your
+                account, and are never sent to any third-party analytics provider (e.g. Google Analytics,
+                Amplitude, Mixpanel, Firebase). This data is not used for advertising; its sole purpose is to
+                improve the product and user experience.</p>
+
+            <h2>5. Tracking Disclosure</h2>
+            <div class="warning-box">
+                <p>AURA does not track its users. The app contains no ad network, attribution, or third-party
+                    analytics SDK. We do not access your advertising identifier (IDFA). We do not sell your data
+                    to any data broker, and we do not share it with third parties for advertising purposes.</p>
+            </div>
+            <p>No data type in our App Store Connect privacy label is marked as "used for tracking purposes." AURA
+                contains no advertising, attribution, or analytics SDK such as AdMob, the Facebook SDK, AppsFlyer,
+                Adjust, Amplitude, Mixpanel, Firebase, Sentry, or Crashlytics, and it does not request App Tracking
+                Transparency (ATT) permission.</p>
+
+            <h2>6. Third-Party Services</h2>
+            <p>We rely on the following trusted service providers to operate AURA. Each governs your data under
+                its own privacy policy:</p>
+            <ul>
+                <li><strong>Supabase</strong> (hosting, database, authentication) — your account details, analysis
+                    history, and product usage events are stored here.
+                    <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
+                <li><strong>OpenAI API</strong> (temporary photo analysis) — the photo you consent to share is
+                    processed only for the duration of the analysis request.
+                    <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">Privacy policy</a></li>
+                <li><strong>Apple Sign-In / Google Sign-In</strong> (authentication) — if you choose either method,
+                    your name, email, and a unique identifier are shared to create your account.
+                    <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a> ·
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a></li>
+                <li><strong>Apple App Store / Google Play</strong> (payment processing) — your subscriptions and
+                    purchases are handled entirely by Apple and Google; your card or bank details never reach us.
+                    <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple</a> ·
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google</a></li>
+                <li><strong>Expo Push Notification Service</strong> (notification delivery) — uses your push token
+                    to deliver the notifications you've opted into.
+                    <a href="https://expo.dev/privacy" target="_blank" rel="noopener">Privacy policy</a></li>
+            </ul>
+
+            <h2>7. International Data Transfers</h2>
+            <p>Due to Supabase's and OpenAI's server infrastructure, your data may be hosted and processed in
+                countries outside your country of residence (for example, the United States or countries within
+                the European Union). For users under KVKK, these transfers rely on your explicit consent under
+                Article 9 and/or on countries or standard contractual mechanisms recognized as providing adequate
+                protection by Turkey's Personal Data Protection Board; for users under GDPR, transfers rely on
+                Standard Contractual Clauses (SCCs).</p>
+
+            <h2>8. Data Retention</h2>
+            <p>Your data is retained for as long as your account remains active. When you delete your account via
+                <strong>Settings → Delete Account</strong>, all of your profile information, analysis history, and
+                product usage records are permanently deleted immediately. These records may persist in
+                disaster-recovery backups for up to 30 additional days,
+                after which they are automatically purged from backups as well. Since your photos are never
+                stored, there is no separate retention period for them.</p>
+
+            <h2>9. Your Rights (GDPR + KVKK)</h2>
+            <p>Under KVKK Article 11 and GDPR Articles 15–21, you have the right to: access your data, request
+                correction of inaccurate or incomplete data, request deletion of your data, restrict processing,
+                request your data in a portable format, object to processing, and withdraw any consent you've
+                given at any time.</p>
+            <p>To exercise these rights, use <strong>Settings → Delete Account</strong> within the Application, or
+                email us at <strong>auracolorapp@gmail.com</strong>. We respond to requests under KVKK within 30
+                days at the latest.</p>
+
+            <h2>10. Children's Privacy</h2>
+            <p>AURA is not directed at individuals under the age of 13. We do not knowingly collect personal data
+                from children under 13. If we discover that a child has
+                provided us with personal data, we delete it from our systems immediately. If you become aware
+                that a child has shared personal data with us, please contact us at
+                <strong>auracolorapp@gmail.com</strong> and we will delete it right away.</p>
+
+            <h2>11. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time to reflect changes in legislation or app
+                capabilities. The date of the current version is shown at the top of this page. We will notify you
+                of material changes via an in-app notification. Continued use of AURA after an update constitutes
+                acceptance of the revised terms.</p>
+
+            <h2>12. Contact</h2>
+            <p>If you have questions, requests, or legal inquiries regarding this Privacy Policy or your data,
+                please reach out to us:</p>
+            <p style="font-weight: 500; color: var(--bronze);">Email: auracolorapp@gmail.com</p>
+
+            <h2>Limitation of Liability</h2>
+            <ul class="liability-list">
+                <li><strong>Purpose limitation:</strong> AURA's color analysis results are provided for aesthetic,
+                    educational, and personal-interest purposes; they do not constitute medical, dermatological,
+                    psychological, or professional advice, diagnosis, or opinion.</li>
+                <li><strong>No accuracy guarantee:</strong> The analysis is generated by AI; results may vary
+                    depending on lighting conditions, camera quality, and photo characteristics. We do not
+                    guarantee the accuracy, completeness, or fitness for a particular purpose of any result.</li>
+                <li><strong>Purchase decisions:</strong> The Developer is not liable for clothing, cosmetic, or
+                    other expenses the user makes based on the app's recommendations.</li>
+                <li><strong>Third-party services:</strong> The Developer is not responsible for outages, errors, or
+                    security incidents within OpenAI's, Supabase's, Apple's, or Google's own systems; their
+                    respective terms apply.</li>
+                <li><strong>Honest limits on our security commitment:</strong> We apply industry-standard measures
+                    (encrypted transmission, access controls), but we clearly state that no method of transmission
+                    over the internet is 100% secure; we do not provide an absolute security guarantee.</li>
+                <li><strong>User responsibility:</strong> The user represents that any photo they upload belongs to
+                    them or that they have the right to upload it; responsibility for uploading someone else's
+                    photo rests with the user.</li>
+                <li><strong>Governing law:</strong> This policy is governed by the laws of the Republic of Türkiye,
+                    and disputes are subject to the jurisdiction of Turkish courts. This does not remove any
+                    mandatory consumer rights you hold under the law of your country of residence.</li>
+                <li><strong>Service continuity:</strong> Features may be modified or discontinued; in that case,
+                    any refund process for your active subscription is handled through Apple or Google.</li>
+            </ul>
+
+            <div style="margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(196, 138, 122, 0.1); text-align: center;">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="support.html">Support & Contact</a>
+                    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Service (EULA)</a>
+                </div>
+            </div>
         </div>
 
-        <h2>3. Third-Party Integrations and Data Transfers</h2>
-        <p>AURA integrates trusted third-party service providers to power its database, AI analysis, and payment
-            operations. These providers govern your data under their respective privacy policies, and the Developer is
-            not responsible for their independent data processing practices:</p>
-        <ul>
-            <li><strong>Supabase (Authentication and Database):</strong> Your account credentials, profile details, and
-                saved color histories are stored securely on encrypted database clusters hosted by Supabase.</li>
-            <li><strong>OpenAI (AI Analysis):</strong> With user consent, user photos are transmitted securely to OpenAI
-                API to perform color analysis. Photo data is processed transiently and is not stored or used for model
-                training.</li>
-            <li><strong>Apple App Store / Google Play Store (Billing & Payments):</strong> All premium in-app purchases
-                and subscriptions are handled entirely by Apple and Google. Your financial details (including credit
-                cards, bank account numbers, or billing info) are never processed, seen, or stored by the Developer.
-            </li>
-        </ul>
-
-        <h2>4. User Rights and Data Deletion</h2>
-        <p>You have full control over your personal data. You can request the permanent deletion of your account and all
-            associated data at any time:</p>
-        <ul>
-            <li>By using the "Delete Account" option within the Settings menu of the Application, which immediately and
-                permanently purges your profile, email, and color history from our Supabase database.</li>
-            <li>In case of technical issues or manually requested data removal, by sending an email request directly to
-                our support team at <strong>auracolorapp@gmail.com</strong>.</li>
-        </ul>
-
-        <h2>5. Data Security</h2>
-        <p>We implement TLS/SSL encryption and industry-standard security safeguards to protect your information against
-            unauthorized access, loss, or misuse. However, no digital transmission or storage method can be guaranteed
-            to be 100% secure. You acknowledge that the Developer is not liable for indirect or consequential damages
-            resulting from security breaches or database service failures beyond our reasonable control.</p>
-
-        <h2>6. Children's Privacy</h2>
-        <p>AURA is not directed to individuals under the age of 13. We do not knowingly collect personal data from
-            children under 13. If we discover that a child under 13 has provided us with personal information, we will
-            delete it from our systems immediately. If you become aware that a child has shared personal information
-            with us, please contact us at auracolorapp@gmail.com.</p>
-
-        <h2>7. Updates to This Policy</h2>
-        <p>We reserve the right to modify this Privacy Policy at any time to reflect updates in legislation or app
-            capabilities. We will notify you of any material changes by updating the policy page or via in-app
-            notifications. Continued use of AURA after updates constitute acceptance of the modified terms.</p>
-
-        <h2>8. Contact Information</h2>
-        <p>If you have any questions, concerns, or legal inquiries regarding this Privacy Policy or your data, please
-            contact us at:</p>
-        <p style="font-weight: 500; color: var(--bronze);">Email: auracolorapp@gmail.com</p>
     </div>
 
     <footer>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="support.html">Support & Contact</a>
-            <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Service (EULA)</a>
-        </div>
-        <p>&copy; 2026 AURA. All rights reserved.</p>
+        <p>&copy; 2026 AURA. All rights reserved. / Tüm hakları saklıdır.</p>
     </footer>
+
+    <script>
+        (function () {
+            function setAuraLang(lang) {
+                var isTr = lang === 'tr';
+                document.getElementById('lang-tr').classList.toggle('hidden', !isTr);
+                document.getElementById('lang-en').classList.toggle('hidden', isTr);
+                document.getElementById('btn-tr').classList.toggle('active', isTr);
+                document.getElementById('btn-en').classList.toggle('active', !isTr);
+                document.getElementById('html-root').setAttribute('lang', lang);
+            }
+            window.setAuraLang = setAuraLang;
+
+            var browserLang = ((navigator.language || navigator.userLanguage || 'en') + '').toLowerCase();
+            setAuraLang(browserLang.indexOf('tr') === 0 ? 'tr' : 'en');
+        })();
+    </script>
 </body>
 
 </html>
